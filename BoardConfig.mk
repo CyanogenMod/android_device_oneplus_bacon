@@ -48,5 +48,9 @@ TARGET_OTA_ASSERT_DEVICE := bacon,A0001
 TARGET_INIT_VENDOR_LIB := libinit_bacon
 
 TARGET_WCNSS_MAC_PREFIX := e8bba8
+
+BOARD_NFC_CHIPSET := pn547
+BOARD_NFC_HAL_SUFFIX := bacon
+
 # inherit from the proprietary version
 -include vendor/oneplus/bacon/BoardConfigVendor.mk
