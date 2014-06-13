@@ -44,6 +44,8 @@ TARGET_RECOVERY_FSTAB := device/oneplus/bacon/rootdir/etc/fstab.bacon
 
 TARGET_OTA_ASSERT_DEVICE := bacon,A0001
 
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
+
 TARGET_WCNSS_MAC_PREFIX := e8bba8
 # inherit from the proprietary version
 -include vendor/oneplus/bacon/BoardConfigVendor.mk
