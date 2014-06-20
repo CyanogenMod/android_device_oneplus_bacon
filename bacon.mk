@@ -24,6 +24,10 @@ TARGET_SCREEN_WIDTH := 1080
 # Haters gonna hate..
 PRODUCT_CHARACTERISTICS := nosdcard
 
+# Voice WakeUp
+PRODUCT_COPY_FILES += \
+    device/oneplus/bacon/prebuilt/VoiceWakeup.apk:system/app/VoiceWakeup.apk
+
 # Ramdisk
 PRODUCT_PACKAGES += \
 libinit_bacon \
