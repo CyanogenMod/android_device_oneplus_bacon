@@ -1,8 +1,8 @@
 [
   {
-    "remote": "cm",
-    "repository": "android_device_oppo_msm8974-common",
+    "remote": "gh",
+    "repository": "STELIX/android_device_oppo_msm8974-common",
     "target_path": "device/oppo/msm8974-common",
-    "revision": "cm-11.0"
+    "revision": "kk"
   }
 ]
