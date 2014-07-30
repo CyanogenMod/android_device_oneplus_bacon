@@ -38,9 +38,9 @@ $(call inherit-product, vendor/carbon/config/common_phone.mk)
 PRODUCT_NAME := carbon_bacon
 PRODUCT_DEVICE := bacon
 PRODUCT_MANUFACTURER := OnePlus
-PRODUCT_MODEL := One
+PRODUCT_MODEL := One A0001
 PRODUCT_PROPERTY_OVERRIDES += ro.buildzipid=carbon.bacon.$(shell date +%m%d%y).$(shell date +%H%M%S)
-CARBON_BUILDTYPE := EXPERIMENTAL
+CARBON_BUILDTYPE := ALPHA
 
 PRODUCT_GMS_CLIENTID_BASE := android-oneplus
 
