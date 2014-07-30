@@ -1,4 +1,5 @@
 # Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2014 The Carbon Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,6 +17,9 @@
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
+# languages
+PRODUCT_LOCALES := en_US de_DE zh_CN zh_TW cs_CZ nl_BE nl_NL en_AU en_GB en_CA en_NZ en_SG fr_BE fr_CA fr_FR fr_CH de_AT de_LI de_CH it_IT it_CH ja_JP ko_KR pl_PL ru_RU es_ES ar_EG ar_IL bg_BG ca_ES hr_HR da_DK en_IN en_IE en_ZA fi_FI el_GR iw_IL hi_IN hu_HU in_ID lv_LV lt_LT nb_NO pt_BR pt_PT ro_RO sr_RS sk_SK sl_SI es_US sv_SE tl_PH th_TH tr_TR uk_UA vi_VN
+
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
@@ -23,18 +27,20 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/oneplus/bacon/bacon.mk)
 
 # Inherit some common CM stuff
-$(call inherit-product, vendor/cm/config/gsm.mk)
+#$(call inherit-product, vendor/cm/config/gsm.mk)
 
 # Enhanced NFC
-$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
+#$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/carbon/config/common_phone.mk)
 
-PRODUCT_NAME := cm_bacon
+PRODUCT_NAME := carbon_bacon
 PRODUCT_DEVICE := bacon
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_MODEL := One
+PRODUCT_PROPERTY_OVERRIDES += ro.buildzipid=carbon.bacon.$(shell date +%m%d%y).$(shell date +%H%M%S)
+CARBON_BUILDTYPE := EXPERIMENTAL
 
 PRODUCT_GMS_CLIENTID_BASE := android-oneplus
 
@@ -50,5 +56,5 @@ ifneq ($(SIGN_BUILD),true)
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_FINGERPRINT=oneplus/bacon/A0001:4.4.2/KVT49L/XNPH25R:user/release-keys PRIVATE_BUILD_DESC="bacon-user 4.4.2 KVT49L XNPH25R release-keys"
 else
 # Signed bacon gets a special boot animation because it's special.
-PRODUCT_BOOTANIMATION := device/oneplus/bacon/bootanimation.zip
+#PRODUCT_BOOTANIMATION := device/oneplus/bacon/bootanimation.zip
 endif
