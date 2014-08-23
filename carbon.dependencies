@@ -4,5 +4,17 @@
     "repository": "STELIX/android_device_oppo_msm8974-common",
     "target_path": "device/oppo/msm8974-common",
     "revision": "kk"
+  },
+  {
+    "remote": "gh",
+    "repository": "TheMuppets/proprietary_vendor_oneplus",
+    "target_path": "vendor/oneplus",
+    "revision": "cm-11.0"
+  },
+  {
+    "remote": "gh",
+    "repository": "TheMuppets/proprietary_vendor_oppo",
+    "target_path": "vendor/oppo",
+    "revision": "cm-11.0"
   }
 ]
