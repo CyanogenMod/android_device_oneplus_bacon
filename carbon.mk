@@ -34,7 +34,7 @@ PRODUCT_DEVICE := bacon
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_MODEL := One
 PRODUCT_PROPERTY_OVERRIDES += ro.buildzipid=carbon.bacon.$(shell date +%m%d%y).$(shell date +%H%M%S)
-CARBON_BUILDTYPE := STELIX_NIGHTLY
+CARBON_BUILDTYPE := NIGHTLY
 
 PRODUCT_GMS_CLIENTID_BASE := android-oneplus
 
