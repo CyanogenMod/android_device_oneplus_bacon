@@ -1,3 +1,1 @@
-add_lunch_combo carbon_bacon-user
 add_lunch_combo carbon_bacon-userdebug
-add_lunch_combo carbon_bacon-eng
