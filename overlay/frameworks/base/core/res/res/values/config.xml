@@ -145,6 +145,9 @@
     <integer-array name="config_virtualKeyVibePattern">
         <item>30</item>
     </integer-array>
+        <config to 7. -->
+      <inter
+     name="config_devicehardwarekeys">0</inter>
 
     <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
     <integer-array name="config_keyboardTapVibePattern">
