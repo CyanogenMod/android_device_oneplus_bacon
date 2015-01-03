@@ -1,0 +1,8 @@
+[
+  {
+    "remote": "cm",
+    "repository": "android_kernel_oneplus_bacon",
+    "target_path": "kernel/oneplus/bacon",
+    "revision": "cm-12.0"
+  }
+]
