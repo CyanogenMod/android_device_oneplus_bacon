@@ -44,6 +44,10 @@ PRODUCT_PACKAGES += \
     nfc_nci.pn54x.default \
     com.android.nfc_extras
 
+# Camera HAL
+PRODUCT_PACKAGES += \
+    camera.msm8974
+
 # NFC access control + feature files + configuration
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
