@@ -3,22 +3,22 @@
     "repository": "proprietary_vendor_oneplus",
     "target_path": "vendor/oneplus",
     "revision": "lollipop"
-  }
+  },
   { "remote": "th",
     "repository": "proprietary_vendor_oppo",
     "target_path": "vendor/oppo",
     "revision": "lollipop"
-  }
+  },
   { "remote": "th",
     "repository": "android_device_oppo_msm8974-common",
     "target_path": "device/oppo/msm8974-common",
     "revision": "lollipop"
-  }
+  },
   { "remote": "th",
     "repository": "android_device_oppo_common",
     "target_path": "device/oppo/common",
     "revision": "lollipop"
-  }
+  },
   {
     "remote": "cm",
     "repository": "android_kernel_oneplus_msm8974",
