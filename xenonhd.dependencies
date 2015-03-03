@@ -1,13 +1,13 @@
 [
-  { "remote": "th",
+  { "remote": "tm",
     "repository": "proprietary_vendor_oneplus",
     "target_path": "vendor/oneplus",
-    "revision": "lollipop"
+    "revision": "cm-12.0"
   },
-  { "remote": "th",
+  { "remote": "tm",
     "repository": "proprietary_vendor_oppo",
     "target_path": "vendor/oppo",
-    "revision": "lollipop"
+    "revision": "cm-12.0"
   },
   { "remote": "th",
     "repository": "android_device_oppo_msm8974-common",
