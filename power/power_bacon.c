@@ -41,10 +41,18 @@
 #define RETRY_TIME_CHANGING_FREQ	20
 #define SLEEP_USEC_BETWN_RETRY		200
 #define LOW_POWER_MAX_FREQ		"729600"
+#define LOW_POWER_MIN_FREQ		"300000"
 #define NORMAL_MAX_FREQ			"2457600"
 #define UEVENT_STRING			"online@/devices/system/cpu/"
+#define CPU_INPUT_BOOST_PATH		"/sys/kernel/cpu_input_boost/userspace_minfreq"
 
 static struct pollfd pfd;
+static char *cpu_path_min[] = {
+    "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq",
+    "/sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq",
+    "/sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq",
+    "/sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq",
+};
 static char *cpu_path_max[] = {
     "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq",
     "/sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq",
@@ -105,7 +113,9 @@ static int uevent_event()
 
         pthread_mutex_lock(&low_power_mode_lock);
         if (low_power_mode && !freq_set[cpu]) {
+            sysfs_write(CPU_INPUT_BOOST_PATH, LOW_POWER_MIN_FREQ);
             while (retry) {
+                sysfs_write(cpu_path_min[cpu], LOW_POWER_MIN_FREQ);
                 ret = sysfs_write(cpu_path_max[cpu], LOW_POWER_MAX_FREQ);
                 if (!ret) {
                     freq_set[cpu] = true;
@@ -115,6 +125,7 @@ static int uevent_event()
                 retry--;
            }
         } else if (!low_power_mode && freq_set[cpu]) {
+             sysfs_write(CPU_INPUT_BOOST_PATH, "0");
              while (retry) {
                   ret = sysfs_write(cpu_path_max[cpu], NORMAL_MAX_FREQ);
                   if (!ret) {
@@ -192,7 +203,9 @@ static void power_hint( __attribute__((unused)) struct power_module *module,
     pthread_mutex_lock(&low_power_mode_lock);
     if (data) {
         low_power_mode = true;
+        sysfs_write(CPU_INPUT_BOOST_PATH, LOW_POWER_MIN_FREQ);
         for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
+            sysfs_write(cpu_path_min[cpu], LOW_POWER_MIN_FREQ);
             ret = sysfs_write(cpu_path_max[cpu], LOW_POWER_MAX_FREQ);
             if (!ret) {
                 freq_set[cpu] = true;
@@ -200,6 +213,7 @@ static void power_hint( __attribute__((unused)) struct power_module *module,
         }
     } else {
         low_power_mode = false;
+        sysfs_write(CPU_INPUT_BOOST_PATH, "0");
         for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
             ret = sysfs_write(cpu_path_max[cpu], NORMAL_MAX_FREQ);
             if (!ret) {
