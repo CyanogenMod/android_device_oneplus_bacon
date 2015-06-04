@@ -781,6 +781,7 @@
         <ctl name="RX2 Digital Volume" value="84" />
         <ctl name="RX3 Digital Volume" value="80" />
         <ctl name="RX4 Digital Volume" value="80" />
+        <ctl name="SPKR Enable" value="1" />
     </path>
 
 
