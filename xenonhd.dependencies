@@ -2,7 +2,7 @@
   { "remote": "tm",
     "repository": "proprietary_vendor_oneplus",
     "target_path": "vendor/oneplus",
-    "revision": "lp-mr1"
+    "revision": "cm-12.1"
   },
   { "remote": "th",
     "repository": "proprietary_vendor_oppo",
