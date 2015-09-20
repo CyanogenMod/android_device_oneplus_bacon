@@ -1,0 +1,4 @@
+allow system_server display_sysfs:file rw_file_perms;
+
+# timerfd
+allow system_server rtc_device:chr_file rw_file_perms;

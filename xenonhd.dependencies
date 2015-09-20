@@ -10,11 +10,6 @@
     "revision": "lp-mr1"
   },
   { "remote": "th",
-    "repository": "android_device_oppo_msm8974-common",
-    "target_path": "device/oppo/msm8974-common",
-    "revision": "lp-mr1"
-  },
-  { "remote": "th",
     "repository": "android_device_oppo_common",
     "target_path": "device/oppo/common",
     "revision": "lp-mr1"
