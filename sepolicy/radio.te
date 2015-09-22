@@ -1,3 +1,0 @@
-# Telecom app can disable tap-to-wake
-allow radio proc_touchpanel:file rw_file_perms;
-allow radio proc_touchpanel:dir { search };
