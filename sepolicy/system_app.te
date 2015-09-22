@@ -1,9 +1,0 @@
-# for Settings' access to TapToWake
-allow system_app proc_touchpanel:file rw_file_perms;
-allow system_app proc_touchpanel:dir { search };
-
-# for Settings' access to VibratorHW
-allow system_app vibeamp_sysfs:file rw_file_perms;
-
-# display tuning
-allow system_app display_sysfs:file rw_file_perms;
