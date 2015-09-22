@@ -1,5 +1,5 @@
 [
-  { "remote": "tm",
+  { "remote": "th",
     "repository": "proprietary_vendor_oneplus",
     "target_path": "vendor/oneplus",
     "revision": "cm-12.1"
