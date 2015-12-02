@@ -96,7 +96,7 @@ TARGET_SCREEN_WIDTH := 1080
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.bacon
+    SnapdragonCamera
 
 # Charger
 PRODUCT_PACKAGES += \
