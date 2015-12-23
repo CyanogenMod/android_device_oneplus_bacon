@@ -213,6 +213,6 @@ endif
 
 -include vendor/oneplus/bacon/BoardConfigVendor.mk
 
-TARGET_GCC_VERSION_EXP:=5.2
+TARGET_GCC_VERSION_EXP:=5.3
 
-TARGET_GCC_VERSION_ARM:=5.2
+TARGET_GCC_VERSION_ARM:=5.3
