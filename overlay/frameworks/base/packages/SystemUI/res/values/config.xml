@@ -26,4 +26,7 @@
     <bool name="doze_display_state_supported">true</bool>
     <bool name="doze_pulse_on_pick_up">true</bool>
 
+    <!-- Pulse stroke width -->
+    <dimen name="config_pulsePathStrokeWidth">25dp</dimen>
+
 </resources>
