@@ -28,6 +28,11 @@ PRODUCT_CHARACTERISTICS := nosdcard
 PRODUCT_PACKAGES += \
     init.qcom.bt.sh
 
+# Camera
+PRODUCT_PACKAGES += \
+    Snap \
+    camera.msm8974
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     libinit_bacon \
