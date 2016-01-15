@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,10 +14,4 @@
 # limitations under the License.
 #
 
-ifneq ($(filter bacon,$(TARGET_DEVICE)),)
-
-LOC_PATH := $(call my-dir)
-
-include $(call first-makefiles-under,$(LOC_PATH))
-
-endif
+include $(call first-makefiles-under,$(call my-dir))

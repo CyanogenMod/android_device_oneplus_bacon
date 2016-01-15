@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,23 +20,6 @@ endif
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay vendor/extra/overlays/phone-1080p
-
-# Haters gonna hate..
-PRODUCT_CHARACTERISTICS := nosdcard
-
-# Config scripts
-PRODUCT_PACKAGES += \
-    init.qcom.bt.sh
-
-# Ramdisk
-PRODUCT_PACKAGES += \
-    libinit_bacon \
-    fstab.bacon \
-    init.bacon.rc \
-    init.qcom.power.rc \
-    init.qcom.usb.rc \
-    init.recovery.qcom.rc \
-    ueventd.bacon.rc
 
 # ANT+
 PRODUCT_PACKAGES += \
@@ -72,33 +55,6 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     tinymix
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    mm.enable.smoothstreaming=true \
-    ro.qc.sdk.audio.fluencetype=fluence \
-    persist.audio.fluence.voicecall=true \
-    audio.offload.buffer.size.kb=32 \
-    audio.offload.video=true \
-    av.streaming.offload.enable=true \
-    use.voice.path.for.pcm.voip=true \
-    audio.offload.multiple.enabled=false \
-    audio.offload.gapless.enabled=true \
-    media.aac_51_output_enabled=true \
-    audio.offload.pcm.16bit.enable=true \
-    audio.offload.pcm.24bit.enable=true \
-    audio.deep_buffer.media=true
-
-# Reduce client buffer size for fast audio output tracks
-PRODUCT_PROPERTY_OVERRIDES += \
-    af.fast_track_multiplier=1
-
-# Low latency audio buffer size in frames
-PRODUCT_PROPERTY_OVERRIDES += \
-    audio_hal.period_size=192
-
-# Bluetooth
-PRODUCT_PROPERTY_OVERRIDES += \
-    bluetooth.hfp.client=1
-
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
@@ -113,9 +69,6 @@ PRODUCT_PACKAGES += \
     charger_res_images
 
 # Dalvik/HWUI
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapminfree=2m
-
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
@@ -126,11 +79,6 @@ PRODUCT_PACKAGES += \
 # Display
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
-
-# Filesystem management tools
-PRODUCT_PACKAGES += \
-    make_ext4fs \
-    setup_fs
 
 # Graphics
 PRODUCT_PACKAGES += \
@@ -145,15 +93,11 @@ PRODUCT_PACKAGES += \
     gps.msm8974
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
+    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/gps/izat.conf:system/etc/izat.conf \
     $(LOCAL_PATH)/gps/quipc.conf:system/etc/quipc.conf \
     $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf
-
-# IO Scheduler
-PRODUCT_PROPERTY_OVERRIDES += \
-    sys.io.scheduler=bfq
 
 # IPC router config
 PRODUCT_COPY_FILES += \
@@ -189,6 +133,16 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
+# Misc dependency packages
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes \
+    libbson \
+    libcnefeatureconfig \
+    libnl_2 \
+    libtinyxml \
+    libxml2
+
 # NFC
 ifeq ($(TARGET_BUILD_VARIANT),user)
     NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access.xml
@@ -199,10 +153,10 @@ PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
 PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
     NfcNci \
-    Tag \
     nfc_nci.pn54x.default \
-    com.android.nfc_extras
+    Tag
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
@@ -241,6 +195,19 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     power.msm8974
 
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.bacon \
+    init.bacon.rc \
+    init.qcom.power.rc \
+    init.qcom.usb.rc \
+    init.recovery.qcom.rc \
+    libinit_bacon \
+    ueventd.bacon.rc
+
+PRODUCT_PACKAGES += \
+    init.qcom.bt.sh
+
 # Recovery
 PRODUCT_EXTRA_RECOVERY_KEYS += \
     $(LOCAL_PATH)/bacon
@@ -249,10 +216,6 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine-8974.conf
 
-# USB
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
-
 # WiFi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
@@ -260,55 +223,18 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 PRODUCT_PACKAGES += \
-    dhcpcd.conf \
-    libwpa_client \
     hostapd \
-    wpa_supplicant \
-    wpa_supplicant.conf \
-    wpa_supplicant_overlay.conf \
-    p2p_supplicant_overlay.conf \
+    wcnss_service \
+    wpa_supplicant
+
+PRODUCT_PACKAGES += \
+    dhcpcd.conf \
     hostapd_default.conf \
     hostapd.accept \
-    hostapd.deny
-
-PRODUCT_PACKAGES += \
-    wcnss_service
-
-# Misc dependency packages
-PRODUCT_PACKAGES += \
-    ebtables \
-    ethertypes \
-    libnl_2 \
-    libbson \
-    libcnefeatureconfig \
-    libtinyxml \
-    libxml2
-
-# USB
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.isUsbOtgEnabled=true \
-    persist.sys.usb.config=mtp
-
-# System properties
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    camera2.portability.force_api=1
-
-# System properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.hwc.mdpcomp.enable=true \
-    persist.timed.enable=true \
-    ro.opengles.version=196608 \
-    ro.use_data_netmgrd=true \
-    persist.data.netmgrd.qos.enable=true \
-    persist.data.tcpackprio.enable=true \
-    ro.data.large_tcp_window_size=true \
-    telephony.lteOnGsmDevice=1 \
-    wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=15 \
-    ro.qualcomm.perf.cores_online=2 \
-    ro.vendor.extension_library=libqti-perfd-client.so \
-    ro.telephony.call_ring.multiple=0 \
-    ro.telephony.default_network=9
+    hostapd.deny \
+    wpa_supplicant.conf \
+    wpa_supplicant_overlay.conf \
+    p2p_supplicant_overlay.conf
 
 # Call the proprietary setup
 $(call inherit-product-if-exists, vendor/oneplus/bacon/bacon-vendor.mk)
