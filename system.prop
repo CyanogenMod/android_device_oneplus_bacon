@@ -12,7 +12,7 @@ ro.qualcomm.cabl=0
 camera2.portability.force_api=1
 
 # Display
-ro.sf.lcd_density=400
+ro.sf.lcd_density=480
 persist.hwc.mdpcomp.enable=true
 ro.opengles.version=196608
 
