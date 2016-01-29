@@ -54,7 +54,6 @@ BOARD_DTBTOOL_ARGS := -2
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_CONFIG := resurrected_defconfig
 TARGET_KERNEL_SOURCE := kernel/oneplus/msm8974
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -196,3 +195,6 @@ endif
 endif
 
 -include vendor/oneplus/bacon/BoardConfigVendor.mk
+
+TARGET_GCC_VERSION_EXP:=4.9
+KERNEL_TOOLCHAIN := /home/varun/rr2/prebuilts/gcc/linux-x86/arm/arm-eabi-4.9/bin
