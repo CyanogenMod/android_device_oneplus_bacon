@@ -19,6 +19,9 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+   <!-- HW keys prefs-->
+   <bool name="config_hwKeysPref">true</bool>  
+
     <!-- Button illumination -->
     <bool name="config_deviceHasVariableButtonBrightness">true</bool>
 
@@ -59,9 +62,9 @@
             5 - In-app Search
          This needs to match the constants in
          policy/src/com/android/internal/policy/impl/PhoneWindowManager.java -->
-    <integer name="config_longPressOnHomeBehavior">3</integer>
+    <integer name="config_longPressOnHomeBehavior">2</integer>
 
-    <integer name="config_longPressOnMenuBehavior">2</integer>
+    <integer name="config_longPressOnMenuBehavior">3</integer>
 
     <!-- Control the behavior when the user double-taps the home button.
             0 - Nothing
@@ -396,4 +399,5 @@
 
     <!-- Operating voltage for bluetooth controller. 0 by default-->
     <integer translatable="false" name="config_bluetooth_operating_voltage_mv">3700</integer>
+
 </resources>
