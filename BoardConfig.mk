@@ -197,4 +197,4 @@ endif
 -include vendor/oneplus/bacon/BoardConfigVendor.mk
 
 TARGET_GCC_VERSION_EXP:=4.9
-KERNEL_TOOLCHAIN := /home/varun/rr2/prebuilts/gcc/linux-x86/arm/arm-eabi-4.9/bin
+KERNEL_TOOLCHAIN := /home/varun/RR/prebuilts/gcc/linux-x86/arm/arm-eabi-4.9/bin
