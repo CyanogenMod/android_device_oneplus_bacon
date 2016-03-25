@@ -167,6 +167,10 @@ on boot
     chmod 0664 /sys/devices/virtual/graphics/fb1/vendor_name
     chmod 0664 /sys/devices/virtual/graphics/fb1/product_description
 
+    write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/background/cpus 0
+    write /dev/cpuset/system-background/cpus 0,3
+
     # Subsytem Restart
     #adsp
     write /sys/bus/msm_subsys/devices/subsys0/restart_level "related"
@@ -481,12 +485,14 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
+    writepid /dev/cpuset/system-background/tasks
 
 service mpdecision /system/bin/mpdecision --avg_comp
    class main
    user root
    group system
    disabled
+    writepid /dev/cpuset/system-background/tasks
 
 service thermal-engine /system/vendor/bin/thermal-engine
    class main
@@ -495,6 +501,7 @@ service thermal-engine /system/vendor/bin/thermal-engine
    socket thermal-send-client stream 0666 system system
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
+    writepid /dev/cpuset/system-background/tasks
 
 service time_daemon /system/bin/time_daemon
     class late_start
@@ -540,6 +547,7 @@ service audiod /system/bin/audiod
    class late_start
    user system
    group system
+    writepid /dev/cpuset/system-background/tasks
 
 service wcnss-service /system/bin/wcnss_service
     class main
