@@ -164,7 +164,7 @@
 
     <EncoderProfile quality="1080p" fileFormat="mp4" duration="30">
       <Video codec="h264"
-             bitRate="20000000"
+             bitRate="17000000"
              width="1920"
              height="1080"
              frameRate="30" />
