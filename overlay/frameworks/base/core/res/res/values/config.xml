@@ -19,9 +19,6 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Button illumination -->
-    
-
     <!-- Hardware keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
          of the following keys present:
@@ -35,7 +32,6 @@
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
     
-
     <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
          of the following keys present:
@@ -49,7 +45,6 @@
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
     
-
     <!-- Control the behavior when the user long presses the home button.
             0 - Nothing
             1 - Menu key
@@ -62,7 +57,6 @@
     <integer name="config_longPressOnHomeBehavior">3</integer>
 
     
-
     <!-- Control the behavior when the user double-taps the home button.
             0 - Nothing
             1 - Menu
@@ -214,7 +208,6 @@
 
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
     
-
     <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
@@ -316,11 +309,9 @@
     <!-- Does the notification LED support multiple colors?
          Used to decide if the user can change the colors -->
     
-
     <!-- Does the battery LED support multiple colors?
          Used to decide if the user can change the colors -->
     
-
     <!-- Indicate the device's Smart Cover coordinates.
          If none are provided, then the feature will be disabled.
          The array should contain 4 values, in pixels, (sample values provided):
