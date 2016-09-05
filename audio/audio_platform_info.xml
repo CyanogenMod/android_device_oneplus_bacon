@@ -36,7 +36,7 @@
         <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" acdb_id="10" />
         <device name="SND_DEVICE_OUT_VOICE_LINE" acdb_id="10"/>
 
-        <device name="SND_DEVICE_IN_HANDSET_MIC" acdb_id="40" />
+        <device name="SND_DEVICE_IN_HANDSET_MIC" acdb_id="4" />
         <device name="SND_DEVICE_IN_SPEAKER_MIC" acdb_id="42" />
         <device name="SND_DEVICE_IN_HEADSET_MIC" acdb_id="8" />
 
