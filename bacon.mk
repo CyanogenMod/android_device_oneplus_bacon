@@ -63,6 +63,12 @@ PRODUCT_PACKAGES += \
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_ASPECT_RATIO := 16by9
+SCREEN_RATIO_PROPORTIONATE := true
+
+# Busybox
+PRODUCT_PACKAGES += \
+    busybox
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -74,8 +80,8 @@ PRODUCT_PACKAGES += \
     charger_res_images
 
 # Dalvik/HWUI
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
 
 # Data
 PRODUCT_PACKAGES += \
